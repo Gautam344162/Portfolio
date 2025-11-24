@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Submission Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Submission Details</h2>
+    <div id="formDetails"></div>
+  </div>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const data = JSON.parse(localStorage.getItem("contactData"));
+      const detailsDiv = document.getElementById('formDetails');
+      if (data) {
+        detailsDiv.innerHTML = `
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Message:</strong> ${data.message}</p>
+        `;
+      } else {
+        detailsDiv.textContent = "No data found.";
+      }
+    });
+  </script>
+</body>
+</html>
